@@ -102,7 +102,7 @@ export function ChatList() {
       state.currentSessionIndex,
       state.selectSession,
       state.removeSession,
-    ]
+    ],
   );
 
   return (
@@ -194,7 +194,7 @@ export function Chat(props: { showSideBar?: () => void }) {
       setPromptHints(promptStore.search(text));
     },
     100,
-    { leading: true, trailing: true }
+    { leading: true, trailing: true },
   );
 
   const onPromptSelect = (prompt: Prompt) => {
@@ -280,7 +280,7 @@ export function Chat(props: { showSideBar?: () => void }) {
               preview: true,
             },
           ]
-        : []
+        : [],
     )
     .concat(
       userInput.length > 0
@@ -292,7 +292,7 @@ export function Chat(props: { showSideBar?: () => void }) {
               preview: true,
             },
           ]
-        : []
+        : [],
     );
 
   // auto scroll
@@ -375,32 +375,33 @@ export function Chat(props: { showSideBar?: () => void }) {
                   </div>
                 )}
                 <div className={styles["chat-message-item"]}>
-                  {(!isUser && !(message.preview || message.content.length === 0)) && (
-                    <div className={styles["chat-message-top-actions"]}>
-                      {message.streaming ? (
-                        <div
-                          className={styles["chat-message-top-action"]}
-                          onClick={() => onUserStop(i)}
-                        >
-                          {Locale.Chat.Actions.Stop}
-                        </div>
-                      ) : (
-                        <div
-                          className={styles["chat-message-top-action"]}
-                          onClick={() => onResend(i)}
-                        >
-                          {Locale.Chat.Actions.Retry}
-                        </div>
-                      )}
+                  {!isUser &&
+                    !(message.preview || message.content.length === 0) && (
+                      <div className={styles["chat-message-top-actions"]}>
+                        {message.streaming ? (
+                          <div
+                            className={styles["chat-message-top-action"]}
+                            onClick={() => onUserStop(i)}
+                          >
+                            {Locale.Chat.Actions.Stop}
+                          </div>
+                        ) : (
+                          <div
+                            className={styles["chat-message-top-action"]}
+                            onClick={() => onResend(i)}
+                          >
+                            {Locale.Chat.Actions.Retry}
+                          </div>
+                        )}
 
-                      <div
-                        className={styles["chat-message-top-action"]}
-                        onClick={() => copyToClipboard(message.content)}
-                      >
-                        {Locale.Chat.Actions.Copy}
+                        <div
+                          className={styles["chat-message-top-action"]}
+                          onClick={() => copyToClipboard(message.content)}
+                        >
+                          {Locale.Chat.Actions.Copy}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
                   {(message.preview || message.content.length === 0) &&
                   !isUser ? (
                     <LoadingIcon />
@@ -555,7 +556,7 @@ export function Home() {
       state.newSession,
       state.currentSessionIndex,
       state.removeSession,
-    ]
+    ],
   );
   const loading = !useHasHydrated();
   const [showSideBar, setShowSideBar] = useState(true);
@@ -580,7 +581,7 @@ export function Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>Jing's ChatGPT</div>
+          <div className={styles["sidebar-title"]}>ChatGPT Next</div>
           <div className={styles["sidebar-sub-title"]}>
             Build your own AI assistant.
           </div>
